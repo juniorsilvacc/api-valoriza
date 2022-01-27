@@ -1,5 +1,11 @@
 import { IUser } from '@modules/users/domain/models/IUser';
-import { Column, CreateDateColumn, Entity, PrimaryColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 import { v4 as uuid } from 'uuid';
 
 @Entity('users')
@@ -14,12 +20,15 @@ class User implements IUser {
   email: string;
 
   @Column()
+  password: string;
+
+  @Column()
   admin: boolean;
 
   @CreateDateColumn()
   created_at: Date;
 
-  @CreateDateColumn()
+  @UpdateDateColumn()
   updated_at: Date;
 
   constructor() {
