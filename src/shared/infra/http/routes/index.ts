@@ -1,3 +1,4 @@
+import { routesCompliments } from '@modules/compliments/infra/http/routes/compliments.routes';
 import { routesTags } from '@modules/tags/infra/http/routes/tags.routes';
 import { routesAuthenticate } from '@modules/users/infra/http/routes/authenticate.routes';
 import { routesUsers } from '@modules/users/infra/http/routes/users.routes';
@@ -8,5 +9,6 @@ const router = Router();
 router.use('/users', routesUsers);
 router.use('/tags', routesTags);
 router.use('/sessions', routesAuthenticate);
+router.use('/compliments', routesCompliments);
 
 export { router };
