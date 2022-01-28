@@ -1,4 +1,5 @@
 import { UsersRepository } from '@modules/users/infra/typeorm/repositories/UsersRepository';
+import { AppError } from '@shared/errors/AppError';
 import { NextFunction, Request, Response } from 'express';
 
 export async function ensureAdmin(
@@ -10,13 +11,11 @@ export async function ensureAdmin(
 
   const usersRepository = new UsersRepository();
 
-  const admin = await usersRepository.findById(user_id);
+  const user = await usersRepository.findById(user_id);
 
-  if (admin) {
-    return next();
+  if (!user?.admin) {
+    throw new AppError("Unauthorized. User isn't admin!", 401);
   }
 
-  return response.status(401).json({
-    error: 'Unauthorized',
-  });
+  return next();
 }
