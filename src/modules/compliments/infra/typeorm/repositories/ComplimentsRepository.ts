@@ -26,6 +26,7 @@ class ComplimentsRepository implements IComplimentsRepository {
       where: {
         user_receiver: user_id,
       },
+      relations: ['userSend', 'userReceiver', 'tag'],
     });
 
     return compliments;
