@@ -11,6 +11,26 @@ class ComplimentsRepository implements IComplimentsRepository {
     this.repository = getRepository(Compliment);
   }
 
+  async findAllUserSend(user_id: string): Promise<ICompliment[]> {
+    const compliments = this.repository.find({
+      where: {
+        user_send: user_id,
+      },
+    });
+
+    return compliments;
+  }
+
+  async findAllUserReceive(user_id: string): Promise<ICompliment[]> {
+    const compliments = this.repository.find({
+      where: {
+        user_receiver: user_id,
+      },
+    });
+
+    return compliments;
+  }
+
   async create({
     message,
     user_sender,
