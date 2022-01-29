@@ -1,4 +1,4 @@
-import { ListUserSendComplimentsService } from '@modules/compliments/services/ListUserSendComplimentsService';
+import { ListUserSendComplimentsService } from '@modules/users/services/ListUserSendComplimentsService';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

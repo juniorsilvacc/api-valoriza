@@ -14,7 +14,7 @@ class ComplimentsRepository implements IComplimentsRepository {
   async findAllUserSend(user_id: string): Promise<ICompliment[]> {
     const compliments = this.repository.find({
       where: {
-        user_send: user_id,
+        user_sender: user_id,
       },
     });
 

@@ -1,6 +1,6 @@
+import { ICompliment } from '@modules/compliments/domain/models/ICompliment';
+import { IComplimentsRepository } from '@modules/compliments/domain/repositories/IComplimentsRepository';
 import { inject, injectable } from 'tsyringe';
-import { IComplimentsRepository } from '../domain/repositories/IComplimentsRepository';
-import { ICompliment } from '../domain/models/ICompliment';
 
 @injectable()
 class ListUserSendComplimentsService {
